@@ -1,4 +1,5 @@
 "use client";
+import { ElfsightWidget } from "react-elfsight-widget";
 import {
   Carousel,
   CarouselContent,
@@ -34,6 +35,9 @@ const TestimonialCarousel = ({ testimonialData }: TestimonialsProps) => {
             </CarouselItem>
           );
         })}
+        <CarouselItem>
+          <ElfsightWidget widgetId="6a80d6f1-1f29-450f-8887-c4eab1b455a3"></ElfsightWidget>
+        </CarouselItem>
       </CarouselContent>
       {/* Bottom buttons container */}
       <div className=" bottom-0 left-18 right-18 absolute -top-15">

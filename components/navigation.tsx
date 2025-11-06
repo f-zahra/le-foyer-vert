@@ -3,9 +3,13 @@ import Image from "next/image";
 import { navItems } from "@/lib/navItems";
 import MobileNavigation from "@/components/MobileNavigation";
 import PhoneCall from "@/components/phoneCall";
-import { nav } from "motion/react-client";
+import { CompanyInformation } from "@/lib/companyInformation";
 
-export default function Navigation() {
+export default function Navigation({
+  companyInfo,
+}: {
+  companyInfo: CompanyInformation;
+}) {
   return (
     <>
       <nav className="sticky top-0 z-50 bg-background/80 backdrop-blur-md  border-border/20 ">
@@ -24,22 +28,21 @@ export default function Navigation() {
             </div>
 
             {/* desktop nav */}
-
-            <div className="text-md  hidden md:flex items-center space-x-8 mr-8 ">
-              {navItems.map((item) => (
-                <Link
-                  key={item.name}
-                  className=" font-medium text-muted-foreground hover:text-green-900  hover:scale-105 transition-colors duration-200"
-                  href={item.href}
-                >
-                  {item.name}
-                </Link>
-              ))}
-
-              <PhoneCall />
+            <div className="flex flex-row justify-end">
+              <div className="text-md  hidden md:flex items-center space-x-8 mr-8 ">
+                {navItems.map((item) => (
+                  <Link
+                    key={item.name}
+                    className=" font-medium text-muted-foreground hover:text-green-900  hover:scale-105 transition-colors duration-200"
+                    href={item.href}
+                  >
+                    {item.name}
+                  </Link>
+                ))}
+              </div>
+              <PhoneCall phoneNumber={companyInfo.phone} />
+              <MobileNavigation />
             </div>
-
-            <MobileNavigation />
           </div>
         </div>
       </nav>

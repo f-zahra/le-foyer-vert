@@ -1,15 +1,10 @@
 "use client";
 import * as motion from "motion/react-client";
-
-import { Button } from "./ui/button";
 import ButtonContact from "@/components/ButtonContact";
 
 export default function HeroSection() {
   return (
     <section className="h-[70vh] bg-no-repeat bg-cover bg-center relative bg-[url('/images/background.jpg')] ">
-      {/* Background Images */}
-      {/* <BackgroundSlides /> */}
-
       {/* Overlay */}
       <div className="absolute inset-0 bg-gradient-to-l from-black/0 via black/50 to-black/70 z-10" />
 

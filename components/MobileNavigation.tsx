@@ -1,7 +1,6 @@
 "use client";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
-import PhoneCall from "@/components/phoneCall";
 import {
   Sheet,
   SheetContent,
@@ -16,7 +15,6 @@ const MobileNavigation = () => {
   const [isOpen, setIsOpen] = useState(false);
   return (
     <div className="md:hidden flex items-center gap-4">
-      <PhoneCall />
       <div>
         <Sheet open={isOpen} onOpenChange={setIsOpen}>
           <SheetTrigger asChild>

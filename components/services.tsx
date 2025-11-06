@@ -2,82 +2,15 @@ import { Card, CardContent, CardHeader } from "./ui/card";
 import { ArrowRight } from "lucide-react";
 import Image from "next/image";
 import Pretitle from "./Pretitle";
-import { LucideIcon } from "lucide-react";
-import { House, Wrench, Hammer } from "lucide-react";
+import * as Icons from "lucide-react";
+import type { ComponentType } from "react";
+import { getURL, ServiceItem } from "@/lib/serviceData";
 
-interface ServiceItem {
-  icon: LucideIcon;
-  img: string;
-  title: string;
-  details: string[];
-}
-
-const serviceItems: ServiceItem[] = [
-  {
-    icon: House,
-    img: "/images/house-exterior.jpg",
-    title: "Exterior Work",
-    details: [
-      "Deck - On the ground",
-      "Exterior renovations - Shed",
-      "Exterior siding",
-      "Fence",
-    ],
-  },
-  {
-    icon: Wrench,
-    img: "/images/house-interior.jpg",
-    title: "Interior Work",
-    details: [
-      "Drywall finishing",
-      "Interior Wall Insulation",
-      "Exterior siding",
-      "Tiling",
-      "Woodworking",
-    ],
-  },
-
-  {
-    icon: Hammer,
-    img: "/images/renovation-projects.jpg",
-    title: "Renovation Projects",
-    details: [
-      "Interior renovations - Without plumbing, electricity, or structure",
-      "Renovations - After disaster",
-      "Renovations - Basement,Bathroom , Kitchen  (without electricity / plumbing)",
-      "Tiling",
-      "Woodworking",
-    ],
-  },
-  {
-    icon: Hammer,
-    img: "/images/renovation-projects.jpg",
-    title: "Renovation Projects",
-    details: [
-      "Interior renovations - Without plumbing, electricity, or structure",
-      "Renovations - After disaster",
-      "Renovations - Basement,Bathroom , Kitchen  (without electricity / plumbing)",
-      "Tiling",
-      "Woodworking",
-    ],
-  },
-  {
-    icon: Hammer,
-    img: "/images/renovation-projects.jpg",
-    title: "Renovation Projects",
-    details: [
-      "Interior renovations - Without plumbing, electricity, or structure",
-      "Renovations - After disaster",
-      "Renovations - Basement,Bathroom , Kitchen  (without electricity / plumbing)",
-      "Tiling",
-      "Woodworking",
-    ],
-  },
-];
-
-export default function Services() {
-  //get posts
-
+export default function Services({
+  serviceData,
+}: {
+  serviceData: ServiceItem[];
+}) {
   return (
     <section id="services" className="py-20 px-4 sm:px-6 lg:px-8 bg-[#f6f6f6]">
       <div className="max-w-7xl mx-auto">
@@ -93,8 +26,11 @@ export default function Services() {
         {/* service list */}
         <div className="flex flex-col  md:flex-row gap-6  justify-center flex-wrap  items-center md:items-stretch">
           {/* loop  through list */}
-          {serviceItems.map((item: ServiceItem, index: number) => {
-            const Icon = item.icon;
+          {serviceData.map((item, index: number) => {
+            const iconName = item.icon as keyof typeof Icons;
+            const IconComponent = (Icons[iconName] ||
+              Icons.Globe) as ComponentType<React.SVGProps<SVGSVGElement>>;
+
             return (
               <div key={index}>
                 <Card className="w-[300px] h-full rounded-none group cursor-pointer overflow-hidden hover:shadow-xl transition-all duration-300 border-0 bg-card/50 backdrop-blur-xs py-0 gap-0 ">
@@ -104,14 +40,14 @@ export default function Services() {
                         alt=""
                         width={300}
                         height={300}
-                        src={item.img}
+                        src={getURL(item.image)}
                         className="w-full h-48 transition-transform duration-300 group-hover:scale-105 object-cover"
                       ></Image>
                     </div>
                   </CardHeader>
                   <CardContent className="p-6">
                     <div className="flex items-center gap-2 mb-3 text-foreground">
-                      <Icon />
+                      <IconComponent />
                       <h3 className="text-xl font-bold   group-hover:text-primary transition-colors duration-300">
                         {item.title}
                       </h3>

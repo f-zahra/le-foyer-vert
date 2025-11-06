@@ -1,5 +1,10 @@
 import Image from "next/image";
 import {
+  getProjectGalleryData,
+  getURL,
+  ProjectImageItem,
+} from "@/lib/projectGallery";
+import {
   Carousel,
   CarouselContent,
   CarouselItem,
@@ -14,19 +19,11 @@ import {
 } from "@/components/ui/dialog";
 import Pretitle from "./Pretitle";
 
-interface ProjectImageItem {
-  img: string;
-}
-
-const projectImageItems: ProjectImageItem[] = [
-  { img: "/images/walls.jpg" },
-  { img: "/images/walls.jpg" },
-  { img: "/images/walls.jpg" },
-  { img: "/images/walls.jpg" },
-  { img: "/images/walls.jpg" },
-];
-
-export default function Projects() {
+export default function Projects({
+  projectGallery,
+}: {
+  projectGallery: ProjectImageItem;
+}) {
   return (
     <>
       <section className="py-20  min-h-[70vh] px-4 sm:px-6 lg:px-8  relative z-20">
@@ -41,7 +38,7 @@ export default function Projects() {
 
           <Carousel className="">
             <CarouselContent className="-ml-4">
-              {projectImageItems.map(
+              {projectGallery.image.map(
                 (item: ProjectImageItem, index: number) => {
                   return (
                     <CarouselItem
@@ -53,7 +50,7 @@ export default function Projects() {
                         {/* ---- Trigger (the clickable image) ---- */}
                         <DialogTrigger asChild>
                           <Image
-                            src={item.img}
+                            src={getURL(item)}
                             fill
                             alt=""
                             className="object-cover pl-4"
@@ -65,7 +62,7 @@ export default function Projects() {
                           <div className="">
                             <DialogTitle>Edit profile</DialogTitle>
                             <Image
-                              src={item.img}
+                              src={getURL(item)}
                               alt="Full size"
                               width={1200}
                               height={500}
@@ -78,31 +75,6 @@ export default function Projects() {
                   );
                 }
               )}
-
-              {/* <CarouselItem className="md:basis-1/3 relative h-[250px] w-full">
-                <Image
-                  src="/images/walls.jpg"
-                  fill
-                  alt=""
-                  className="object-cover pl-4"
-                ></Image>
-              </CarouselItem>
-              <CarouselItem className="md:basis-1/3 relative h-[250px] w-full">
-                <Image
-                  src="/images/walls.jpg"
-                  fill
-                  alt=""
-                  className="object-cover pl-4"
-                ></Image>
-              </CarouselItem>
-              <CarouselItem className="md:basis-1/3 relative h-[250px] w-full">
-                <Image
-                  src="/images/walls.jpg"
-                  fill
-                  alt=""
-                  className="object-cover pl-4"
-                ></Image>
-              </CarouselItem> */}
             </CarouselContent>
             {/* --- CUSTOM POSITIONING for arrows --- */}
             <CarouselPrevious

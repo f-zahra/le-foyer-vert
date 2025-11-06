@@ -2,8 +2,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { MapPin, Mail, Phone } from "lucide-react";
 import { FaInstagram, FaFacebook } from "react-icons/fa";
-
-const Footer = () => {
+import { CompanyInformation } from "@/lib/companyInformation";
+const Footer = ({ companyInfo }: { companyInfo: CompanyInformation }) => {
   return (
     <footer className="bg-[#afc0db] text-blue-950">
       <div className="@container px-10 mx-auto">
@@ -18,10 +18,7 @@ const Footer = () => {
                 alt=""
               ></Image>
             </Link>
-            <p className="max-w-[500px] ml-10">
-              Your satisfaction is our priority! The entire Protech Peinture
-              team is committed to providing you with high-quality service.
-            </p>
+            <p className="max-w-[500px] ml-10">{companyInfo.slogan}</p>
           </div>
           {/* contact */}
 
@@ -30,22 +27,21 @@ const Footer = () => {
             <ul className="space-y-4">
               <li className="flex items-center gap-4">
                 <MapPin size={16} strokeWidth={1} />
-                <p>1234 , yellowstreet , montreal , qc </p>
+                <p>{companyInfo.address} </p>
               </li>
               <li className="flex items-center gap-4">
                 <Mail size={16} strokeWidth={1} />
-                <p>info@lefoyervert.com </p>
+                <p>{companyInfo.email}</p>
               </li>
               <li className="flex items-center gap-4">
                 <Phone size={16} strokeWidth={1} />
-                <p>+1 514-000-0000</p>
+                <p>{companyInfo.phone}</p>
               </li>
               <li className="flex items-center gap-4 mt-10  text-2xl">
-                <Link href={"https://www.google.com/"}>
+                <Link href={companyInfo.socials.instagram}>
                   <FaInstagram />
                 </Link>
-                <Link href={"https://www.google.com/"}>
-                  {" "}
+                <Link href={companyInfo.socials.facebook}>
                   <FaFacebook />
                 </Link>
               </li>

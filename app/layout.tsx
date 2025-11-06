@@ -4,6 +4,7 @@ import "./globals.css";
 import Navigation from "@/components/navigation";
 import TopBar from "@/components/TopBar";
 import Footer from "@/components/Footer";
+import getCompanyInformationData from "@/lib/companyInformation";
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -16,20 +17,21 @@ export const metadata: Metadata = {
   description: "compagnie de construction et renovation",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const companyInfo = await getCompanyInformationData();
   return (
     <html lang="en">
       <body className={`${montserrat.variable} antialiased `}>
-        <TopBar></TopBar>
-        <Navigation></Navigation>
+        <TopBar companyInfo={companyInfo}></TopBar>
+        <Navigation companyInfo={companyInfo}></Navigation>
 
         <main>{children}</main>
 
-        <Footer></Footer>
+        <Footer companyInfo={companyInfo}></Footer>
       </body>
     </html>
   );

@@ -1,21 +1,47 @@
-"use client";
 import HeroSection from "@/components/HeroSection";
 import About from "@/components/about";
 import Services from "@/components/services";
 import Projects from "@/components/projects";
-import Testimonials from "@/components/testimonials";
+import Contact from "@/components/contact";
+import getAboutData, { getURL } from "@/lib/aboutData";
+import getServiceData from "@/lib/serviceData";
+import getTestimonialsData from "@/lib/testimonials";
+import getServiceAreasData from "@/lib/areasServed";
+import getProjectGalleryData from "@/lib/projectGallery";
+import getCompanyInformationData from "@/lib/companyInformation";
+export default async function Home() {
+  const [
+    aboutData,
+    serviceData,
 
-export default function Home() {
+    companyInfo,
+    testimonials,
+    serviceAreas,
+    projectGallery,
+
+    ,
+  ] = await Promise.all([
+    getAboutData(),
+    getServiceData(),
+    getCompanyInformationData(),
+    getTestimonialsData(),
+    getServiceAreasData(),
+    getProjectGalleryData(),
+  ]);
   return (
     <div className="min-h-screen">
       <HeroSection></HeroSection>
-      <About></About>
-      <Services></Services>
+      <About aboutData={aboutData}></About>
+      <Services serviceData={serviceData}></Services>
       <div className="bg-no-repeat bg-cover bg-center  bg-[url('/images/blueprint.jpg')] relative">
         {/* Overlay */}
         <div className="absolute inset-0   bg-white/90 z-10" />
-        <Projects></Projects>
-        <Testimonials></Testimonials>
+        <Projects projectGallery={projectGallery}></Projects>
+        <Contact
+          testimonials={testimonials}
+          serviceAreas={serviceAreas}
+          companyInfo={companyInfo}
+        ></Contact>
       </div>
     </div>
   );

@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { PhoneOutgoing } from "lucide-react";
-const PhoneCall = () => {
+
+const PhoneCall = ({ phoneNumber }: { phoneNumber: string }) => {
   return (
     <>
       <Link
@@ -14,7 +15,7 @@ const PhoneCall = () => {
 
         {/* Text: hidden on small screens */}
         <span className="hidden md:inline text-white font-medium text-sm">
-          514-000-0202
+          {phoneNumber}
         </span>
       </Link>
     </>

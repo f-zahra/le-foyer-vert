@@ -1,4 +1,3 @@
-import { Facebook } from "next/dist/lib/metadata/types/extra-types";
 import { client } from "@/lib/sanity";
 
 export interface CompanyInformation {

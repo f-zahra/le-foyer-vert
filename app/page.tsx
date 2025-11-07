@@ -3,7 +3,7 @@ import About from "@/components/about";
 import Services from "@/components/services";
 import Projects from "@/components/projects";
 import Contact from "@/components/contact";
-import getAboutData, { getURL } from "@/lib/aboutData";
+import getAboutData from "@/lib/aboutData";
 import getServiceData from "@/lib/serviceData";
 import getTestimonialsData from "@/lib/testimonials";
 import getServiceAreasData from "@/lib/areasServed";

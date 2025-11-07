@@ -1,9 +1,5 @@
 import Image from "next/image";
-import {
-  getProjectGalleryData,
-  getURL,
-  ProjectImageItem,
-} from "@/lib/projectGallery";
+import { getURL, ProjectImageItem } from "@/lib/projectGallery";
 import {
   Carousel,
   CarouselContent,

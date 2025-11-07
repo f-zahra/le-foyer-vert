@@ -58,7 +58,7 @@ export default function Contact({
               </h3>
 
               <div className="grid  xl:grid-flow-col grid-col-1 auto-rows-max  grid-rows-4  space-x-8 px-10 lg:px-8 mt-8 lg:mt-6 justify-center ">
-                {serviceAreas.name.map((region: String, index: number) => {
+                {serviceAreas.name.map((region: string, index: number) => {
                   console.log(region);
                   return (
                     <div

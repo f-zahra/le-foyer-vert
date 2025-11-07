@@ -12,7 +12,7 @@ export interface CompanyInformation {
   rbq: string;
   slogan: string;
 }
-
+export const revalidate = 30;
 export async function getCompanyInformationData() {
   const query = `*[_type == 'companyInformation'][0] {name,address,phone,email,socials,rbq,slogan}`;
   const data: CompanyInformation = await client.fetch(query);

@@ -1,3 +1,6 @@
+"use client";
+import { toast, Toaster } from "react-hot-toast";
+
 import {
   Field,
   FieldContent,
@@ -13,10 +16,48 @@ import {
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import Image from "next/image";
+import { Button } from "./ui/button";
 
-import ButtonContact from "../ButtonContact";
-
+const key = process.env.NEXT_PUBLIC_WEB3FORMS_API_KEY;
+if (!key) {
+  throw new Error("Missing Web3Forms access key.");
+}
 const ContactForm = () => {
+  const onSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    toast("Sending...", {
+      style: {
+        background: "#fff",
+        color: "#000",
+      },
+    });
+    const form = event.target as HTMLFormElement;
+    const formData = new FormData(form);
+
+    formData.append("access_key", key);
+
+    const response = await fetch("https://api.web3forms.com/submit", {
+      method: "POST",
+      body: formData,
+    });
+
+    const data = await response.json();
+
+    if (data.success) {
+      toast("Email sent successfully", {
+        icon: "👏",
+        style: {
+          borderRadius: "10px",
+          background: "#fff",
+          color: "#000",
+        },
+      });
+      form.reset();
+    } else {
+      console.log("Error", data);
+      toast.error("Error!");
+    }
+  };
   return (
     <section id="#contact-form" className="">
       <div className="grid md:grid-cols-2  grid-col-1 items-center min-h-[80vh] ">
@@ -31,7 +72,7 @@ const ContactForm = () => {
         </div>
 
         <div className=" py-10  md:px-18 px-12 ">
-          <form action="">
+          <form onSubmit={onSubmit}>
             <FieldSet className="max-w-[500px]">
               <FieldGroup>
                 <div className="flex md:flex-row flex-col items-center justify-between md:gap-3 gap-5">
@@ -69,7 +110,6 @@ const ContactForm = () => {
                   <Textarea
                     id="feedback"
                     name="feedback"
-                    placeholder="Your feedback helps us improve..."
                     rows={4}
                     required
                     minLength={10}
@@ -77,12 +117,16 @@ const ContactForm = () => {
                   />
                 </Field>
                 <Field orientation="horizontal">
-                  <ButtonContact text={"Get a quote"}></ButtonContact>
+                  <Button type="submit">Submit</Button>
+                  <Toaster position="top-center" />
                 </Field>
               </FieldGroup>
             </FieldSet>
           </form>
         </div>
+      </div>
+      <div className="flex flex-col items-center mt-10">
+        <Toaster position="top-center" />
       </div>
     </section>
   );

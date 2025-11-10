@@ -9,7 +9,7 @@ import getTestimonialsData from "@/lib/testimonials";
 import getServiceAreasData from "@/lib/areasServed";
 import getProjectGalleryData from "@/lib/projectGallery";
 import getCompanyInformationData from "@/lib/companyInformation";
-import ContactForm from "@/components/ui/contactForm";
+import ContactForm from "@/components/contactForm";
 export default async function Home() {
   const [
     aboutData,

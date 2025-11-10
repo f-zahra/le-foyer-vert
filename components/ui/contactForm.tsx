@@ -13,7 +13,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import Image from "next/image";
-import { Button } from "./button";
+
 import ButtonContact from "../ButtonContact";
 
 const ContactForm = () => {

@@ -18,11 +18,9 @@ import { Textarea } from "@/components/ui/textarea";
 import Image from "next/image";
 import { Button } from "./ui/button";
 
-const key = process.env.NEXT_PUBLIC_WEB3FORMS_API_KEY;
-if (!key) {
-  throw new Error("Missing Web3Forms access key.");
-}
-const ContactForm = () => {
+function ContactForm() {
+  const key = process.env.NEXT_PUBLIC_WEB3FORMS_API_KEY;
+
   const onSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     toast("Sending...", {
@@ -130,6 +128,6 @@ const ContactForm = () => {
       </div>
     </section>
   );
-};
+}
 
 export default ContactForm;

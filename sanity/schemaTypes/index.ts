@@ -4,6 +4,7 @@ import gallerySchema from './photoGallerySchema'
 import regionSchema from './serviceArea'
 import testimonialSchema from './testimonials'
 import {companyInformationSchema} from './companyInformation'
+import heroSchema from './hero'
 
 export const schemaTypes = [
   serviceSchema,
@@ -12,4 +13,5 @@ export const schemaTypes = [
   regionSchema,
   testimonialSchema,
   companyInformationSchema,
+  heroSchema,
 ]

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Montserrat } from "next/font/google";
+import { Montserrat, Poppins, Oswald } from "next/font/google";
 import "./globals.css";
 import Navigation from "@/components/navigation";
 import TopBar from "@/components/TopBar";
@@ -10,6 +10,17 @@ const montserrat = Montserrat({
   subsets: ["latin"],
   weight: ["400", "700", "900"],
   variable: "--font-montserrat",
+});
+const oswald = Oswald({
+  subsets: ["latin"],
+  weight: ["400", "500"],
+  variable: "--font-oswald",
+});
+
+const poppin = Poppins({
+  subsets: ["latin"],
+  weight: ["400", "700", "900"],
+  variable: "--font-poppins",
 });
 
 export const metadata: Metadata = {

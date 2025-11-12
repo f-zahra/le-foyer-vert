@@ -19,7 +19,7 @@ export default function HeroSection() {
           <h1 className=" text-3xl md:text-3xl   lg:text-4xl  font-bold text-white  leading-tight mb-6 uppercase">
             Building robust lasting solutions
           </h1>
-          <p className=" md:text-lg mb-8 max-w-2xl text-white ">
+          <p className=" md:text-xl mb-8 max-w-2xl text-white font-small font-poppins">
             Eco-friendly home renovations & custom decks/pergolas. Sustainable
             style, expert craftsmanship.
           </p>

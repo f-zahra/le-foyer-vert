@@ -68,13 +68,14 @@ function ContactForm() {
           />
         </div>
 
-        <div className=" md:px-18 px-12 ">
+        <div className=" md:px-18 px-12 my-8">
+          <h3 className="text-3xl  font-bold mb-10 ">Estimation En ligne</h3>
           <form onSubmit={onSubmit}>
             <FieldSet className="max-w-[500px]">
               <FieldGroup>
                 <div className="flex md:flex-row flex-col items-center justify-between md:gap-3 gap-5">
                   <Field>
-                    <FieldLabel htmlFor="name">Name</FieldLabel>
+                    <FieldLabel htmlFor="name">Name*</FieldLabel>
                     <Input
                       id="name"
                       name="name"
@@ -92,18 +93,17 @@ function ContactForm() {
                       type="tel"
                       pattern="^[0-9\-\+\s\(\)]*$"
                       placeholder="123-456-7890"
-                      required
                     />
                   </Field>
                 </div>
 
                 <Field>
-                  <FieldLabel htmlFor="email">Email</FieldLabel>
+                  <FieldLabel htmlFor="email">Email*</FieldLabel>
                   <Input id="email" name="email" type="email" required />
                 </Field>
 
                 <Field>
-                  <FieldLabel htmlFor="feedback">Feedback</FieldLabel>
+                  <FieldLabel htmlFor="feedback">Feedback*</FieldLabel>
                   <Textarea
                     id="feedback"
                     name="feedback"
@@ -114,7 +114,7 @@ function ContactForm() {
                   />
                 </Field>
                 <Field orientation="horizontal">
-                  <Button type="submit">Submit</Button>
+                  <Button type="submit">Envoyer</Button>
                   <Toaster position="top-center" />
                 </Field>
               </FieldGroup>

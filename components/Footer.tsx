@@ -5,7 +5,7 @@ import { FaInstagram, FaFacebook } from "react-icons/fa";
 import { CompanyInformation } from "@/lib/companyInformation";
 const Footer = ({ companyInfo }: { companyInfo: CompanyInformation }) => {
   return (
-    <footer className="bg-[#afc0db] text-blue-950">
+    <footer className="bg-[#b4c2bb] text-green-950">
       <div className="@container px-10 mx-auto">
         <div className="py-16 xl:py-4 flex flex-col xl:flex-row gap-[60px] xl:gap-[30px] xl:items-center justify-evenly mb-6">
           {/* logo & text  */}
@@ -18,23 +18,27 @@ const Footer = ({ companyInfo }: { companyInfo: CompanyInformation }) => {
                 alt=""
               ></Image>
             </Link>
-            <p className="max-w-[500px] ml-10">{companyInfo.slogan}</p>
+            <p className="max-w-[500px] ml-10 text-xl font-medium text-foreground">
+              {companyInfo.slogan}
+            </p>
           </div>
           {/* contact */}
 
           <div className="text-xl">
-            <h4 className="font-bold text-xl text-black mb-10 ">Contact</h4>
-            <ul className="space-y-4">
+            <h4 className="font-bold text-2xl text-secondary-foreground mb-10   uppercase ">
+              Contact
+            </h4>
+            <ul className="space-y-4 text-foreground">
               <li className="flex items-center gap-4">
-                <MapPin size={16} strokeWidth={1} />
+                <MapPin size={16} strokeWidth={2} />
                 <p>{companyInfo.address} </p>
               </li>
               <li className="flex items-center gap-4">
-                <Mail size={16} strokeWidth={1} />
+                <Mail size={16} strokeWidth={2} />
                 <p>{companyInfo.email}</p>
               </li>
               <li className="flex items-center gap-4">
-                <Phone size={16} strokeWidth={1} />
+                <Phone size={16} strokeWidth={2} />
                 <p>{companyInfo.phone}</p>
               </li>
               <li className="flex items-center gap-4 mt-10  text-2xl">

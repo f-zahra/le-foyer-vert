@@ -15,13 +15,18 @@ const About = async ({ aboutData }: { aboutData: AboutItem }) => {
               {/* pretitle */}
               <Pretitle text="About Us" center={false}></Pretitle>
               <h2 className="h2 mb-6 text-2xl font-bold">{aboutData.title}</h2>
-              <p>{aboutData.content}</p>
+              <p className="font-poppins text-lg font-small">
+                {aboutData.content}
+              </p>
               <div className="p-8 mb-11">
                 <ul className=" pl-5 space-y-2 uppercase font-bold text-md">
                   {aboutData.details &&
                     aboutData.details.map((item: string, index: number) => {
                       return (
-                        <li key={index} className=" flex gap-4 items-center">
+                        <li
+                          key={index}
+                          className=" flex gap-4 items-center font-oswald"
+                        >
                           <ShieldCheck className="shrink-0" />
                           <p> {item}</p>
                         </li>

@@ -8,6 +8,8 @@
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
   --font-montserrat: var(--font-montserrat);
+  --font-poppins: var(--font-poppins);
+  --font-oswald: var(--font-oswald);
   --radius-xl: calc(var(--radius) + 4px);
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -54,8 +56,8 @@
   --primary: oklch(0.205 0 0);
   --primary-foreground: oklch(0.985 0 0);
   --secondary: oklch(0.97 0 0);
-  --secondary-foreground: oklch(0.205 0 0);
-  --muted: oklch(12.212% 0.00001 271.152);
+  --secondary-foreground: oklch(25.52% 0.06372 149.86);
+  --muted: oklch(62%, 0%, 30%, 78%);
   --muted-foreground: oklch(36.88% 0.01682 17.805);
   --accent: oklch(0.97 0 0);
   --accent-foreground: oklch(0.205 0 0);

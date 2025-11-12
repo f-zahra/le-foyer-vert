@@ -10,6 +10,7 @@ import getServiceAreasData from "@/lib/areasServed";
 import getProjectGalleryData from "@/lib/projectGallery";
 import getCompanyInformationData from "@/lib/companyInformation";
 import ContactForm from "@/components/contactForm";
+import getHeroSectionData from "@/lib/hero";
 export default async function Home() {
   const [
     aboutData,
@@ -19,8 +20,7 @@ export default async function Home() {
     testimonials,
     serviceAreas,
     projectGallery,
-
-    ,
+    HeroSectiondata,
   ] = await Promise.all([
     getAboutData(),
     getServiceData(),
@@ -28,10 +28,11 @@ export default async function Home() {
     getTestimonialsData(),
     getServiceAreasData(),
     getProjectGalleryData(),
+    getHeroSectionData(),
   ]);
   return (
     <div className="min-h-screen">
-      <HeroSection></HeroSection>
+      <HeroSection HeroSectiondata={HeroSectiondata}></HeroSection>
       <About aboutData={aboutData}></About>
       <Services serviceData={serviceData}></Services>
       <div className="bg-no-repeat bg-cover bg-center  bg-[url('/images/blueprint.jpg')] relative">

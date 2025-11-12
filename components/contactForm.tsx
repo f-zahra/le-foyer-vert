@@ -58,18 +58,17 @@ function ContactForm() {
   };
   return (
     <section id="#contact-form" className="">
-      <div className="grid md:grid-cols-2  grid-col-1 items-center min-h-[80vh] ">
-        <div className="relative w-full h-full ">
+      <div className="grid md:grid-cols-2  grid-col-1 items-center min-h-[80vh]">
+        <div className="relative min-h-[500px] h-full">
           <Image
-            src="/images/contact-form-image.jpg" // path in public folder
-            alt="Hero background"
-            fill // makes the image fill its parent container
-            className="object-cover " // tailwind: cover, contain, etc.
-            priority // loads this image eagerly
+            src="/images/contact-form-image.jpg"
+            alt=""
+            fill
+            className="object-cover"
           />
         </div>
 
-        <div className=" py-10  md:px-18 px-12 ">
+        <div className=" md:px-18 px-12 ">
           <form onSubmit={onSubmit}>
             <FieldSet className="max-w-[500px]">
               <FieldGroup>
@@ -123,7 +122,7 @@ function ContactForm() {
           </form>
         </div>
       </div>
-      <div className="flex flex-col items-center mt-10">
+      <div className="flex flex-col items-center">
         <Toaster position="top-center" />
       </div>
     </section>

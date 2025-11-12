@@ -20,30 +20,19 @@ const TestimonialCarousel = ({ testimonialData }: TestimonialsProps) => {
   return (
     <Carousel
       plugins={[plugin.current]}
-      className="max-w-full relative"
+      className="max-w-full relative "
       onMouseEnter={plugin.current.stop}
       onMouseLeave={plugin.current.reset}
     >
-      <CarouselContent className=" text-center">
-        {testimonialData.map((item, index: number) => {
-          return (
-            <CarouselItem key={index}>
-              <div className=" flex-colum  p-8 mx-8">
-                <p className="mb-10 text-lg">{item.comment}</p>
-                <h3 className="text-2xl">{`- ${item.name}`}</h3>
-              </div>
-            </CarouselItem>
-          );
-        })}
+      <CarouselContent className=" ">
         <CarouselItem>
-          <ElfsightWidget widgetId="6a80d6f1-1f29-450f-8887-c4eab1b455a3"></ElfsightWidget>
+          <ElfsightWidget
+            className="px-10"
+            widgetId="6a80d6f1-1f29-450f-8887-c4eab1b455a3"
+          ></ElfsightWidget>
         </CarouselItem>
       </CarouselContent>
       {/* Bottom buttons container */}
-      <div className=" bottom-0 left-18 right-18 absolute -top-15">
-        <CarouselPrevious />
-        <CarouselNext />
-      </div>
     </Carousel>
   );
 };

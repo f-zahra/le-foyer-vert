@@ -57,7 +57,7 @@ function ContactForm() {
     }
   };
   return (
-    <section id="#contact-form" className="">
+    <section id="quote-form">
       <div className="grid md:grid-cols-2  grid-col-1 items-center min-h-[80vh]">
         <div className="relative min-h-[500px] h-full">
           <Image

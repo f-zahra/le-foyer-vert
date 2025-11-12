@@ -22,7 +22,10 @@ export default function Projects({
 }) {
   return (
     <>
-      <section className="py-20  min-h-[70vh] px-4 sm:px-6 lg:px-8  relative z-20">
+      <section
+        id="projects"
+        className="py-20  min-h-[70vh] px-4 sm:px-6 lg:px-8  relative z-20"
+      >
         <div className="max-w-7xl mx-auto  ">
           <div className="text-center max-w-[540px] mx-auto xl:mb-20">
             <Pretitle text="Our work" center={true} />

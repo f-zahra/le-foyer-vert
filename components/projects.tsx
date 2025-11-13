@@ -18,7 +18,7 @@ import Pretitle from "./Pretitle";
 export default function Projects({
   projectGallery,
 }: {
-  projectGallery: ProjectImageItem;
+  projectGallery: ProjectImageItem[];
 }) {
   return (
     <>
@@ -37,43 +37,55 @@ export default function Projects({
 
           <Carousel className="">
             <CarouselContent className="-ml-4">
-              {projectGallery.image.map(
-                (item: ProjectImageItem, index: number) => {
-                  return (
-                    <CarouselItem
-                      key={index}
-                      className="md:basis-1/3 relative h-[250px]  w-full"
-                    >
-                      {/* Wrap everything in a Dialog */}
-                      <Dialog>
-                        {/* ---- Trigger (the clickable image) ---- */}
-                        <DialogTrigger asChild>
-                          <Image
-                            src={getURL(item)}
-                            fill
-                            alt=""
-                            className="object-cover pl-4"
-                          ></Image>
-                        </DialogTrigger>
+              {projectGallery.map((item: ProjectImageItem, index: number) => {
+                return (
+                  <CarouselItem
+                    key={index}
+                    className="md:basis-1/3 relative h-[250px]  w-full"
+                  >
+                    {/* Wrap everything in a Dialog */}
+                    <Dialog>
+                      {/* ---- Trigger (the clickable image) ---- */}
+                      <DialogTrigger asChild>
+                        <Image
+                          src={getURL(item.image[0])}
+                          fill
+                          alt=""
+                          className="object-cover pl-4"
+                        ></Image>
+                      </DialogTrigger>
 
-                        {/* ---- Popup content ---- */}
-                        <DialogContent className="p-0 bg-transparent border-none shadow-none  ">
-                          <div className="">
-                            <DialogTitle>Edit profile</DialogTitle>
-                            <Image
-                              src={getURL(item)}
-                              alt="Full size"
-                              width={1200}
-                              height={500}
-                              className="max-w-full h-max-[90vh] py-8"
-                            />
-                          </div>
-                        </DialogContent>
-                      </Dialog>
-                    </CarouselItem>
-                  );
-                }
-              )}
+                      {/* ---- Popup content ---- */}
+                      <DialogContent className="p-0 bg-transparent border-none shadow-none w-full h-screen flex items-center justify-center">
+                        <DialogTitle />
+                        <Carousel
+                          className="w-full max-w-3xl "
+                          opts={{
+                            loop: true,
+                          }}
+                        >
+                          <CarouselContent>
+                            {item.image.map((img: any, imgIndex: number) => {
+                              return (
+                                <CarouselItem key={imgIndex}>
+                                  <Image
+                                    src={getURL(img)}
+                                    alt="Full size"
+                                    width={800}
+                                    height={1000}
+                                  />
+                                </CarouselItem>
+                              );
+                            })}
+                          </CarouselContent>
+                          <CarouselPrevious />
+                          <CarouselNext />
+                        </Carousel>
+                      </DialogContent>
+                    </Dialog>
+                  </CarouselItem>
+                );
+              })}
             </CarouselContent>
             {/* --- CUSTOM POSITIONING for arrows --- */}
             <CarouselPrevious

@@ -6,6 +6,12 @@ const gallerySchema = defineType({
   type: 'document',
   fields: [
     defineField({
+      name: 'projectTtile',
+      title: 'Project name',
+      type: 'string',
+      description: 'Title of the project',
+    }),
+    defineField({
       name: 'image',
       title: 'Image',
       type: 'array',

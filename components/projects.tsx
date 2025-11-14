@@ -57,7 +57,7 @@ export default function Projects({
 
                       {/* ---- Popup content ---- */}
                       <DialogContent className="p-0 bg-transparent border-none shadow-none w-full h-screen flex items-center justify-center">
-                        <DialogTitle />
+                        <DialogTitle>{item.projectTitle}</DialogTitle>
                         <Carousel
                           className="w-full max-w-3xl "
                           opts={{

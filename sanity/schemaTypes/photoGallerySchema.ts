@@ -1,14 +1,14 @@
 import {defineType, defineField} from 'sanity'
-
+import {baseLanguage} from './localeString'
 const gallerySchema = defineType({
   name: 'gallery',
   title: 'Project photo gallery',
   type: 'document',
   fields: [
     defineField({
-      name: 'projectTtile',
+      name: 'projectTitle',
       title: 'Project name',
-      type: 'string',
+      type: 'localeString',
       description: 'Title of the project',
     }),
     defineField({
@@ -25,6 +25,12 @@ const gallerySchema = defineType({
       ],
     }),
   ],
+  preview: {
+    select: {
+      title: 'name',
+      subtitle: `title.${baseLanguage.id}`,
+    },
+  },
 })
 
 export default gallerySchema

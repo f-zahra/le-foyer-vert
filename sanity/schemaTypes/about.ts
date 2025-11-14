@@ -1,5 +1,6 @@
 import {defineType, defineField} from 'sanity'
 
+import {baseLanguage} from './localeString'
 const aboutSchema = defineType({
   name: 'about',
   title: 'About section',
@@ -8,20 +9,20 @@ const aboutSchema = defineType({
     defineField({
       name: 'title',
       title: 'Heading',
-      type: 'string',
+      type: 'localeString',
       description: 'The  heading describing your company',
     }),
     defineField({
       name: 'content',
       title: 'Paragraph',
-      type: 'text',
+      type: 'localeText',
       description: 'Write a short paragraph about your company',
     }),
     defineField({
       name: 'slug',
       type: 'slug',
       description: 'example interior-work',
-      options: {source: 'title'},
+      options: {source: `title.${baseLanguage.id}`},
       validation: (rule) => rule.required(),
     }),
 
@@ -38,10 +39,16 @@ const aboutSchema = defineType({
       name: 'details',
       title: 'Details',
       type: 'array',
-      of: [{type: 'string'}],
+      of: [{type: 'localeString'}],
       description: 'List of  characteristics that describes your company ',
     }),
   ],
+  preview: {
+    select: {
+      title: 'name',
+      subtitle: `title.${baseLanguage.id}`,
+    },
+  },
 })
 
 export default aboutSchema

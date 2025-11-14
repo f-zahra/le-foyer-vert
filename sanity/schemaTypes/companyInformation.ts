@@ -1,5 +1,6 @@
 import {defineType, defineField} from 'sanity'
 
+import {baseLanguage} from './localeString'
 export const companyInformationSchema = defineType({
   name: 'companyInformation',
   title: 'Company Information',
@@ -50,8 +51,13 @@ export const companyInformationSchema = defineType({
     defineField({
       name: 'slogan',
       title: 'Slogan',
-      type: 'text',
-      rows: 4,
+      type: 'localeString',
     }),
   ],
+  preview: {
+    select: {
+      title: 'name',
+      subtitle: `title.${baseLanguage.id}`,
+    },
+  },
 })

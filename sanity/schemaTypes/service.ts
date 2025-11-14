@@ -1,6 +1,6 @@
 import {defineField, defineType} from 'sanity'
 import {Wrench} from 'lucide-react'
-
+import {baseLanguage} from './localeString'
 const serviceSchema = defineType({
   name: 'service',
   title: 'service',
@@ -10,7 +10,7 @@ const serviceSchema = defineType({
     defineField({
       name: 'title',
       title: 'Title',
-      type: 'string',
+      type: 'localeString',
       description: 'Title of the service (e.g., Renovation Projects)',
     }),
     defineField({
@@ -48,10 +48,16 @@ const serviceSchema = defineType({
       name: 'details',
       title: 'Details',
       type: 'array',
-      of: [{type: 'string'}],
+      of: [{type: 'localeString'}],
       description: 'List of service details or features.',
     }),
   ],
+  preview: {
+    select: {
+      title: 'name',
+      subtitle: `title.${baseLanguage.id}`,
+    },
+  },
 })
 
 export default serviceSchema

@@ -63,11 +63,10 @@ export default function Contact({
 
               <div className="grid font-md font-montserrat xl:grid-flow-col grid-col-1 auto-rows-max  grid-rows-4  space-x-6 px-10 lg:px-8   justify-center   ">
                 {serviceAreas.name.map((region: string, index: number) => {
-                  console.log(region);
                   return (
                     <div
                       key={index}
-                      className="flex flex-row gap-2  text-lg font-medium  items-center max-w-xs "
+                      className="flex flex-row gap-3  text-lg font-medium xl:mb-0 mb-3  items-center max-w-xs "
                     >
                       <MapPin className="shrink-0" />
                       <h4 className="text-left">{region}</h4>

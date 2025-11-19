@@ -54,8 +54,8 @@ const serviceSchema = defineType({
   ],
   preview: {
     select: {
-      title: 'name',
-      subtitle: `title.${baseLanguage.id}`,
+      title: `title.${baseLanguage.id}`,
+      subtitle: 'slug.current',
     },
   },
 })

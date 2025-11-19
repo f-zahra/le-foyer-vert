@@ -6,9 +6,9 @@ export interface HeroItem {
   backgroundImage: any;
 }
 export const revalidate = 30; // revalidate at most every 30s
-export async function getHeroSectionData() {
-  const query = `*[_type == 'hero'][0] {title, subTitle, backgroundImage}`;
-  const data: HeroItem = await client.fetch(query);
+export async function getHeroSectionData(lang: string) {
+  const query = `*[_type == 'hero'][0] {"title":title.${lang},"subTitle": subTitle.${lang}, backgroundImage}`;
+  const data: HeroItem = await client.fetch(query, { lang });
 
   return data;
 }

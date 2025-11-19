@@ -36,7 +36,7 @@ export default async function RootLayout({
   params: { lang: string };
 }) {
   const { lang } = params;
-  const companyInfo = await getCompanyInformationData();
+  const companyInfo = await getCompanyInformationData(lang);
   return (
     <html lang={lang}>
       <body className={`${montserrat.variable} antialiased `}>

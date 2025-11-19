@@ -11,7 +11,10 @@ import getProjectGalleryData from "@/lib/projectGallery";
 import getCompanyInformationData from "@/lib/companyInformation";
 import ContactForm from "@/components/contactForm";
 import getHeroSectionData from "@/lib/hero";
-export default async function Home() {
+import { redirect } from "next/navigation";
+
+export default async function Home({ params }: { params: { lang: string } }) {
+  const { lang } = params;
   const [
     aboutData,
     serviceData,
@@ -22,14 +25,15 @@ export default async function Home() {
     projectGallery,
     HeroSectiondata,
   ] = await Promise.all([
-    getAboutData(),
-    getServiceData(),
-    getCompanyInformationData(),
+    getAboutData(lang),
+    getServiceData(lang),
+    getCompanyInformationData(lang),
     getTestimonialsData(),
     getServiceAreasData(),
     getProjectGalleryData(),
-    getHeroSectionData(),
+    getHeroSectionData(lang),
   ]);
+  redirect("/fr");
   return (
     <div className="min-h-screen">
       <HeroSection HeroSectiondata={HeroSectiondata}></HeroSection>

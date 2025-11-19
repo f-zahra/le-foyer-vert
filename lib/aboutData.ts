@@ -7,9 +7,9 @@ export interface AboutItem {
   details: string[];
 }
 export const revalidate = 30; // revalidate at most every 30s
-export async function getAboutData() {
-  const query = `*[_type == 'about'][0] {title, content, image, details}`;
-  const data: AboutItem = await client.fetch(query);
+export async function getAboutData(lang: string) {
+  const query = `*[_type == 'about'][0] {"title":title.${lang},"content": content.${lang}, image,"details": details.${lang}}`;
+  const data: AboutItem = await client.fetch(query, { lang });
 
   return data;
 }

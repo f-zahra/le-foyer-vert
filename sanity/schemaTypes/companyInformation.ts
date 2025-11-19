@@ -51,13 +51,13 @@ export const companyInformationSchema = defineType({
     defineField({
       name: 'slogan',
       title: 'Slogan',
-      type: 'localeString',
+      type: 'localeText',
     }),
   ],
   preview: {
     select: {
-      title: 'name',
-      subtitle: `title.${baseLanguage.id}`,
+      title: `title.${baseLanguage.id}`,
+      subtitle: 'slug.current',
     },
   },
 })

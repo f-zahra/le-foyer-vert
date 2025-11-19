@@ -13,11 +13,11 @@ export interface CompanyInformation {
   slogan: string;
 }
 
-export async function getCompanyInformationData() {
-  const query = `*[_type == 'companyInformation'][0] {name,address,phone,email,socials,rbq,slogan}`;
+export async function getCompanyInformationData(lang: string) {
+  const query = `*[_type == 'companyInformation'][0] {name,address,phone,email,socials,rbq, "slogan": slogan.${lang}}`;
   const data: CompanyInformation = await client.fetch(
     query,
-    {},
+    { lang },
     { next: { revalidate: 30 } }
   );
 

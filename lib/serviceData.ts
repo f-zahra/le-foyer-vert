@@ -7,9 +7,9 @@ export interface ServiceItem {
   details: string[];
 }
 export const revalidate = 30;
-export async function getServiceData() {
-  const query = `*[_type == 'service'] {icon, image, title, details}`;
-  const data: ServiceItem[] = await client.fetch(query);
+export async function getServiceData(lang: string) {
+  const query = `*[_type == 'service'] {icon, image, "title":title.${lang},"details": details[].${lang}}`;
+  const data: ServiceItem[] = await client.fetch(query, { lang });
 
   return data;
 }

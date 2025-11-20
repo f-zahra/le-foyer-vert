@@ -35,7 +35,7 @@ export default function Projects({
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
               {t("title")}
             </h2>
-            <p>{t("subTitle")}</p>
+            <p className="mb-6">{t("subTitle")}</p>
           </div>
 
           <Carousel className="">

@@ -10,8 +10,12 @@ import {
 import { Menu } from "lucide-react";
 import { useState } from "react";
 import { navItems } from "@/lib/navItems";
+import LocaleSwitcher from "./LocaleSwitcher";
+import { useLocale, useTranslations } from "next-intl";
 
 const MobileNavigation = () => {
+  const t = useTranslations();
+  const locale = useLocale();
   const [isOpen, setIsOpen] = useState(false);
   return (
     <div className="md:hidden flex items-center gap-4">
@@ -32,9 +36,13 @@ const MobileNavigation = () => {
                   href={item.href}
                   onClick={() => setIsOpen(false)}
                 >
-                  {item.name}
+                  {t(item.name)}
                 </Link>
               ))}
+              <LocaleSwitcher
+                defaultValue={locale}
+                label={"select"}
+              ></LocaleSwitcher>
             </div>
           </SheetContent>
         </Sheet>

@@ -51,14 +51,12 @@ export default async function RootLayout({
   return (
     <html lang={locale}>
       <body className={`${montserrat.variable} antialiased `}>
-        <div>{locale}</div>
         <TopBar companyInfo={companyInfo}></TopBar>
         <NextIntlClientProvider messages={messages}>
           <Navigation companyInfo={companyInfo}></Navigation>
           <main>{children}</main>
+          <Footer companyInfo={companyInfo}></Footer>
         </NextIntlClientProvider>
-
-        <Footer companyInfo={companyInfo}></Footer>
       </body>
     </html>
   );

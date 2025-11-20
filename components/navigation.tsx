@@ -4,13 +4,16 @@ import { navItems } from "@/lib/navItems";
 import MobileNavigation from "@/components/MobileNavigation";
 import PhoneCall from "@/components/phoneCall";
 import { CompanyInformation } from "@/lib/companyInformation";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
+import LocaleSwitcher from "./LocaleSwitcher";
 export default function Navigation({
   companyInfo,
 }: {
   companyInfo: CompanyInformation;
 }) {
   const t = useTranslations();
+  const locale = useLocale();
+
   return (
     <>
       <nav className="sticky top-0 z-50 bg-background/80 backdrop-blur-md  border-border/20 ">
@@ -40,8 +43,13 @@ export default function Navigation({
                     {t(item.name)}
                   </Link>
                 ))}
+                <LocaleSwitcher
+                  defaultValue={locale}
+                  label={"select"}
+                ></LocaleSwitcher>
               </div>
               <PhoneCall phoneNumber={companyInfo.phone} />
+
               <MobileNavigation />
             </div>
           </div>

@@ -1,0 +1,33 @@
+{
+  "navigation": {
+    "about": "À propos",
+    "service": "Nos Services",
+    "projects": "Nos projets",
+    "contact": "Contactez nous",
+    "quote": "Devis"
+  },
+  "quote": "soumission",
+  "services": {
+    "title": "Découvrez nos services",
+    "subTitle": "Des services de rénovation fiables et personnalisés, conçus pour transformer votre espace avec qualité et précision",
+    "learn-more": "En savoir plus"
+  },
+  "projects": {
+    "title": "Découvrez nos projets",
+    "subTitle": "Parcourez notre galerie de projets pour découvrir l’étendue de nos réalisations. Chaque projet illustre notre engagement envers l’excellence, la précision et la qualité du travail accompli."
+  },
+  "contact": {
+    "contact-us": "N'hésitez pas à nous contacter",
+    "Testimonials": "Témoignages",
+    "quote": "Devis rapide et gratuit",
+    "area": "Secteurs desservis"
+  },
+  "form": {
+    "submit-form": "Envoyez-nous un courriel",
+    "name": "Nom Complet",
+    "phone": "Téléphone",
+    "email": "Courriel",
+    "message": "Message",
+    "send": "envoyer"
+  }
+}

@@ -3,12 +3,14 @@ import * as motion from "motion/react-client";
 import ButtonContact from "@/components/ButtonContact";
 import { HeroItem, getURL } from "@/lib/hero";
 import Image from "next/image";
+import { useTranslations } from "next-intl";
 
 export default function HeroSection({
   HeroSectiondata,
 }: {
   HeroSectiondata: HeroItem;
 }) {
+  const t = useTranslations();
   return (
     <section className={`h-[70vh] bg-no-repeat bg-cover bg-center relative`}>
       <Image
@@ -40,7 +42,7 @@ export default function HeroSection({
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
           >
-            <ButtonContact text="get a quote" />
+            <ButtonContact text={t("quote")} />
           </motion.div>
         </motion.div>
       </div>

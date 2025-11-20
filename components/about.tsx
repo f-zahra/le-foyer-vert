@@ -3,8 +3,10 @@ import Pretitle from "./Pretitle";
 import { ShieldCheck } from "lucide-react";
 import Image from "next/image";
 import { AboutItem, getURL } from "@/lib/aboutData";
+import { useTranslations } from "next-intl";
 
 const About = async ({ aboutData }: { aboutData: AboutItem }) => {
+  const t = useTranslations("navigation");
   return (
     <section className="pt-16 xl:pt-32 mb-16 " id="about">
       <div className="max-w-7xl mx-auto px-4">
@@ -13,7 +15,7 @@ const About = async ({ aboutData }: { aboutData: AboutItem }) => {
           <div className="flex-1">
             <div className="max-w-[600px]">
               {/* pretitle */}
-              <Pretitle text="About Us" center={false}></Pretitle>
+              <Pretitle text={t("about")} center={false}></Pretitle>
               <h2 className="h2 mb-6 text-2xl font-bold">{aboutData.title}</h2>
               <p className="font-poppins text-lg font-small">
                 {aboutData.content}
@@ -34,7 +36,7 @@ const About = async ({ aboutData }: { aboutData: AboutItem }) => {
                     })}
                 </ul>
               </div>
-              <ButtonContact text="Contact us" />
+              <ButtonContact text={t("contact")} />
             </div>
           </div>
           {/* img */}

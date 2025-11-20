@@ -1,0 +1,33 @@
+{
+  "navigation": {
+    "about": "About",
+    "service": "Service",
+    "projects": "Our work",
+    "contact": "Contact Us",
+    "quote": "Quote"
+  },
+  "quote": "get a quote",
+  "services": {
+    "title": " Discover our services",
+    "subTitle": "reliable and personalized renovation services, designed to transform your space with quality and precision",
+    "learn-more": "learn more"
+  },
+  "projects": {
+    "title": "Discover our projects",
+    "subTitle": "Browse our project gallery to view the range of renovations we have completed. Each project exemplifies our dedication to excellence, precision, and high-quality workmanship"
+  },
+  "contact": {
+    "contact-us": "Get in touch with us",
+    "Testimonials": "Testimonials",
+    "quote": "Get a free quote",
+    "area": "Area Covered"
+  },
+  "form": {
+    "submit-form": "Send Us an email",
+    "name": "Full Name",
+    "phone": "Phone",
+    "email": "Email",
+    "message": "Message",
+    "send": "Submit"
+  }
+}

@@ -13,8 +13,8 @@ import ContactForm from "@/components/contactForm";
 import getHeroSectionData from "@/lib/hero";
 import { redirect } from "next/navigation";
 
-export default async function Home({ params }: { params: { lang: string } }) {
-  const { lang } = params;
+export default async function Home({ params }: { params: { locale: string } }) {
+  const { locale } = await params;
   const [
     aboutData,
     serviceData,
@@ -25,15 +25,15 @@ export default async function Home({ params }: { params: { lang: string } }) {
     projectGallery,
     HeroSectiondata,
   ] = await Promise.all([
-    getAboutData(lang),
-    getServiceData(lang),
-    getCompanyInformationData(lang),
+    getAboutData(locale),
+    getServiceData(locale),
+    getCompanyInformationData(locale),
     getTestimonialsData(),
     getServiceAreasData(),
     getProjectGalleryData(),
-    getHeroSectionData(lang),
+    getHeroSectionData(locale),
   ]);
-  redirect("/fr");
+
   return (
     <div className="min-h-screen">
       <HeroSection HeroSectiondata={HeroSectiondata}></HeroSection>

@@ -5,6 +5,7 @@ import TestimonialCarousel from "./testimonialCarousel";
 import { Testimonial } from "@/lib/testimonials";
 import { CompanyInformation } from "@/lib/companyInformation";
 import { ServiceArea } from "@/lib/areasServed";
+import { useTranslations } from "next-intl";
 
 interface ContactProps {
   testimonials: Testimonial[];
@@ -16,21 +17,25 @@ export default function Contact({
   serviceAreas,
   companyInfo,
 }: ContactProps) {
+  const t = useTranslations("contact");
+  const pretitle_t = useTranslations("navigation");
   return (
     <section id="contact" className="py-20  relative z-20">
       <div className=" mx-auto  min-h-[90vh]  ">
         {/* title */}
         <div className="text-center max-w-[540px] mx-auto xl:mb-10 ">
-          <Pretitle text="Contact us" center={true} />
+          <Pretitle text={pretitle_t("contact")} center={true} />
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4 uppercase">
-            get in touch with Us
+            {t("contact-us")}
           </h2>
         </div>
 
         <div className="md:grid md:grid-cols-2  items-stretch  sm:py-10 ">
           {/* Testimonials */}
           <div className="bg-white h-[600px] flex flex-col justify-center items-center py-15 lg:py-10 ">
-            <h3 className="text-3xl font-bold lg:mb-8 mb-10 ">Testimonials</h3>
+            <h3 className="text-3xl font-bold lg:mb-8 mb-10 ">
+              {t("Testimonials")}
+            </h3>
             <TestimonialCarousel
               testimonialData={testimonials}
             ></TestimonialCarousel>
@@ -39,9 +44,7 @@ export default function Contact({
           <div className="  text-center bg-[#1f211e]  text-white py-10 ">
             <div className="flex flex-col">
               {/* contact */}
-              <h3 className="text-3xl  font-bold mb-6 ">
-                Estimation gratuites
-              </h3>
+              <h3 className="text-3xl  font-bold mb-6 ">{t("quote")}</h3>
               <div className="flex flex-col lg:flex-row items-center justify-evenly py-6 font-montserrat font text-md font-medium gap-4 lg:gap-2 ">
                 {/* phone */}
 
@@ -57,9 +60,7 @@ export default function Contact({
                 </div>
               </div>
               {/* regions */}
-              <h3 className="text-3xl  font-bold mb-8 mt-14">
-                Region desservie
-              </h3>
+              <h3 className="text-3xl  font-bold mb-8 mt-14">{t("area")}</h3>
 
               <div className="grid font-md font-montserrat xl:grid-flow-col grid-col-1 auto-rows-max  grid-rows-4  space-x-6 px-10 lg:px-8   justify-center   ">
                 {serviceAreas.name.map((region: string, index: number) => {

@@ -17,6 +17,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import Image from "next/image";
 import { Button } from "./ui/button";
+import { useTranslations } from "next-intl";
 
 function ContactForm() {
   const key = process.env.NEXT_PUBLIC_WEB3FORMS_API_KEY;
@@ -56,6 +57,7 @@ function ContactForm() {
       toast.error("Error!");
     }
   };
+  const t = useTranslations("form");
   return (
     <section id="quote-form">
       <div className="grid md:grid-cols-2  grid-col-1 items-center min-h-[80vh]">
@@ -69,13 +71,13 @@ function ContactForm() {
         </div>
 
         <div className=" md:px-18 px-12 my-8">
-          <h3 className="text-3xl  font-bold mb-10 ">Estimation En ligne</h3>
+          <h3 className="text-3xl  font-bold mb-10 ">{t("submit-form")}</h3>
           <form onSubmit={onSubmit}>
             <FieldSet className="max-w-[500px]">
               <FieldGroup>
                 <div className="flex md:flex-row flex-col items-center justify-between md:gap-3 gap-5">
                   <Field>
-                    <FieldLabel htmlFor="name">Name*</FieldLabel>
+                    <FieldLabel htmlFor="name">{t("name")}*</FieldLabel>
                     <Input
                       id="name"
                       name="name"
@@ -86,7 +88,7 @@ function ContactForm() {
                   </Field>
 
                   <Field>
-                    <FieldLabel htmlFor="phone">Phone</FieldLabel>
+                    <FieldLabel htmlFor="phone">{t("phone")}</FieldLabel>
                     <Input
                       id="phone"
                       name="phone"
@@ -98,12 +100,12 @@ function ContactForm() {
                 </div>
 
                 <Field>
-                  <FieldLabel htmlFor="email">Email*</FieldLabel>
+                  <FieldLabel htmlFor="email">{t("email")}*</FieldLabel>
                   <Input id="email" name="email" type="email" required />
                 </Field>
 
                 <Field>
-                  <FieldLabel htmlFor="feedback">Feedback*</FieldLabel>
+                  <FieldLabel htmlFor="feedback">{t("message")}*</FieldLabel>
                   <Textarea
                     id="feedback"
                     name="feedback"
@@ -114,7 +116,9 @@ function ContactForm() {
                   />
                 </Field>
                 <Field orientation="horizontal">
-                  <Button type="submit">Envoyer</Button>
+                  <Button className="cursor-pointer" type="submit">
+                    {t("send")}
+                  </Button>
                   <Toaster position="top-center" />
                 </Field>
               </FieldGroup>

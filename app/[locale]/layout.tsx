@@ -5,7 +5,10 @@ import Navigation from "@/components/navigation";
 import TopBar from "@/components/TopBar";
 import Footer from "@/components/Footer";
 import getCompanyInformationData from "@/lib/companyInformation";
-
+import { NextIntlClientProvider, hasLocale } from "next-intl";
+import { getMessages } from "next-intl/server";
+import { notFound, redirect } from "next/navigation";
+import { routing } from "@/i18n/routing";
 const montserrat = Montserrat({
   subsets: ["latin"],
   weight: ["400", "700", "900"],
@@ -31,20 +34,29 @@ export const metadata: Metadata = {
 export default async function RootLayout({
   children,
   params,
-}: {
+}: Readonly<{
   children: React.ReactNode;
-  params: { lang: string };
-}) {
-  const { lang } = params;
-  const companyInfo = await getCompanyInformationData(lang);
-  return (
-    <html lang={lang}>
-      <body className={`${montserrat.variable} antialiased `}>
-        <div>{lang}</div>
-        <TopBar companyInfo={companyInfo}></TopBar>
-        <Navigation companyInfo={companyInfo}></Navigation>
+  params: { locale: Locale };
+}>) {
+  // Ensure that the incoming `locale` is valid
+  const { locale } = await params;
+  if (!hasLocale(routing.locales, locale)) {
+    notFound();
+  }
+  const companyInfo = await getCompanyInformationData(locale);
+  const messages = await getMessages({ locale });
 
-        <main>{children}</main>
+  console.log("RootLayout locale:", locale);
+  console.log("Messages keys:", Object.keys(messages));
+  return (
+    <html lang={locale}>
+      <body className={`${montserrat.variable} antialiased `}>
+        <div>{locale}</div>
+        <TopBar companyInfo={companyInfo}></TopBar>
+        <NextIntlClientProvider messages={messages}>
+          <Navigation companyInfo={companyInfo}></Navigation>
+          <main>{children}</main>
+        </NextIntlClientProvider>
 
         <Footer companyInfo={companyInfo}></Footer>
       </body>

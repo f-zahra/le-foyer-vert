@@ -5,22 +5,25 @@ import Pretitle from "./Pretitle";
 import * as Icons from "lucide-react";
 import type { ComponentType } from "react";
 import { getURL, ServiceItem } from "@/lib/serviceData";
+import { useTranslations } from "next-intl";
 
 export default function Services({
   serviceData,
 }: {
   serviceData: ServiceItem[];
 }) {
+  const t = useTranslations("services");
+  const pretitle_t = useTranslations("navigation");
   return (
     <section id="services" className="py-20 px-4 sm:px-6 lg:px-8 bg-[#f6f6f6]">
       <div className="max-w-7xl mx-auto">
-        <Pretitle text="our services" center={true}></Pretitle>
+        <Pretitle text={pretitle_t("service")} center={true}></Pretitle>
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-            Discover our services
+            {t("title")}
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            small description of the quality of the service
+            {t("subTitle")}
           </p>
         </div>
         {/* service list */}
@@ -61,7 +64,7 @@ export default function Services({
                       </ul>
                     </div>
                     <div className="flex items-center text-primary font-medium group-hover:underline">
-                      learn more
+                      {t("learn-more")}
                       <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1 " />
                     </div>
                   </CardContent>

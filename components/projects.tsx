@@ -14,12 +14,15 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import Pretitle from "./Pretitle";
+import { useTranslations } from "next-intl";
 
 export default function Projects({
   projectGallery,
 }: {
   projectGallery: ProjectImageItem[];
 }) {
+  const t = useTranslations("projects");
+  const pretitle_t = useTranslations("navigation");
   return (
     <>
       <section
@@ -28,11 +31,11 @@ export default function Projects({
       >
         <div className="max-w-7xl mx-auto  ">
           <div className="text-center max-w-[540px] mx-auto xl:mb-20">
-            <Pretitle text="Our work" center={true} />
+            <Pretitle text={pretitle_t("projects")} center={true} />
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-              Discover our projects
+              {t("title")}
             </h2>
-            <p>small introduction</p>
+            <p>{t("subTitle")}</p>
           </div>
 
           <Carousel className="">

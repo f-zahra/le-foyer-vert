@@ -4,12 +4,13 @@ import { navItems } from "@/lib/navItems";
 import MobileNavigation from "@/components/MobileNavigation";
 import PhoneCall from "@/components/phoneCall";
 import { CompanyInformation } from "@/lib/companyInformation";
-
+import { useTranslations } from "next-intl";
 export default function Navigation({
   companyInfo,
 }: {
   companyInfo: CompanyInformation;
 }) {
+  const t = useTranslations();
   return (
     <>
       <nav className="sticky top-0 z-50 bg-background/80 backdrop-blur-md  border-border/20 ">
@@ -36,7 +37,7 @@ export default function Navigation({
                     className=" font-medium text-muted-foreground hover:text-green-900  hover:scale-105 transition-colors duration-200"
                     href={item.href}
                   >
-                    {item.name}
+                    {t(item.name)}
                   </Link>
                 ))}
               </div>

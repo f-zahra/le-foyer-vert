@@ -1,5 +1,5 @@
 import type { NextConfig } from "next";
-import { hostname } from "os";
+import createNextIntlPlugin from "next-intl/plugin";
 
 const nextConfig: NextConfig = {
   images: {
@@ -13,5 +13,5 @@ const nextConfig: NextConfig = {
   },
   reactStrictMode: true,
 };
-
-export default nextConfig;
+const withNextIntl = createNextIntlPlugin();
+export default withNextIntl(nextConfig);

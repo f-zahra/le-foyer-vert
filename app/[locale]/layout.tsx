@@ -26,18 +26,14 @@ const poppin = Poppins({
   variable: "--font-poppins",
 });
 
-export const metadata: Metadata = {
-  title: "Le foyer Vert Inc",
-  description: "compagnie de construction et renovation",
-};
 type Params = Promise<{ locale: string }>;
 
 export async function generateMetadata({ params }: { params: Params }) {
   const { locale } = await params;
   console.log(locale);
   return {
-    title: "ProjectName",
-    description: "ProjectDescription",
+    title: "Le foyer Vert Inc",
+    description: "compagnie de construction et renovation",
   };
 }
 export default async function RootLayout({

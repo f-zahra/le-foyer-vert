@@ -12,13 +12,14 @@ const Footer = ({ companyInfo }: { companyInfo: CompanyInformation }) => {
           <div className=" mb-6">
             <Link href="/">
               <Image
-                src="/images/logo-2.svg"
-                width={480}
+                src="/images/logo-2.png"
+                width={300}
                 height={40}
+                quality={100}
                 alt=""
               ></Image>
             </Link>
-            <p className="max-w-[500px] ml-10 text-xl font-medium text-foreground">
+            <p className="max-w-[500px] pl-6 text-xl font-medium text-foreground">
               {companyInfo.slogan}
             </p>
           </div>

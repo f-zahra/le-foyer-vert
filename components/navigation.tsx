@@ -7,6 +7,7 @@ import { CompanyInformation } from "@/lib/companyInformation";
 
 import LocaleSwitcher from "./LocaleSwitcher";
 import { getLocale, getTranslations } from "next-intl/server";
+
 export default async function Navigation({
   companyInfo,
 }: {
@@ -24,11 +25,10 @@ export default async function Navigation({
 
             <div className="shrink-0">
               <Image
-                src="/images/logo-2.svg"
+                src="/images/logo-2.png"
                 alt="Logo"
                 width={200}
-                className="pb-3 w-[200px] h-auto"
-                style={{ shapeRendering: "geometricPrecision" }}
+                className="pb-3"
                 height={60}
               />
             </div>

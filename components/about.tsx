@@ -3,10 +3,9 @@ import Pretitle from "./Pretitle";
 import { ShieldCheck } from "lucide-react";
 import Image from "next/image";
 import { AboutItem, getURL } from "@/lib/aboutData";
-import { useTranslations } from "next-intl";
-
+import { getTranslations } from "next-intl/server";
 const About = async ({ aboutData }: { aboutData: AboutItem }) => {
-  const t = useTranslations("navigation");
+  const t = await getTranslations("navigation");
   return (
     <section className="pt-16 xl:pt-32 mb-16 " id="about">
       <div className="max-w-7xl mx-auto px-4">

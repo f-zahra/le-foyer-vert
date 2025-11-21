@@ -5,20 +5,21 @@ import TestimonialCarousel from "./testimonialCarousel";
 import { Testimonial } from "@/lib/testimonials";
 import { CompanyInformation } from "@/lib/companyInformation";
 import { ServiceArea } from "@/lib/areasServed";
-import { useTranslations } from "next-intl";
+
+import { getTranslations } from "next-intl/server";
 
 interface ContactProps {
   testimonials: Testimonial[];
   serviceAreas: ServiceArea;
   companyInfo: CompanyInformation;
 }
-export default function Contact({
+export default async function Contact({
   testimonials,
   serviceAreas,
   companyInfo,
 }: ContactProps) {
-  const t = useTranslations("contact");
-  const pretitle_t = useTranslations("navigation");
+  const t = await getTranslations("contact");
+  const pretitle_t = await getTranslations("navigation");
   return (
     <section id="contact" className="py-20  relative z-20">
       <div className=" mx-auto  min-h-[90vh]  ">

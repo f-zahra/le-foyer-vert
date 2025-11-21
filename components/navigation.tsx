@@ -4,15 +4,16 @@ import { navItems } from "@/lib/navItems";
 import MobileNavigation from "@/components/MobileNavigation";
 import PhoneCall from "@/components/phoneCall";
 import { CompanyInformation } from "@/lib/companyInformation";
-import { useLocale, useTranslations } from "next-intl";
+
 import LocaleSwitcher from "./LocaleSwitcher";
-export default function Navigation({
+import { getLocale, getTranslations } from "next-intl/server";
+export default async function Navigation({
   companyInfo,
 }: {
   companyInfo: CompanyInformation;
 }) {
-  const t = useTranslations();
-  const locale = useLocale();
+  const t = await getTranslations();
+  const locale = await getLocale();
 
   return (
     <>

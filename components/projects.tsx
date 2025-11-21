@@ -14,15 +14,15 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import Pretitle from "./Pretitle";
-import { useTranslations } from "next-intl";
+import { getTranslations } from "next-intl/server";
 
-export default function Projects({
+export default async function Projects({
   projectGallery,
 }: {
   projectGallery: ProjectImageItem[];
 }) {
-  const t = useTranslations("projects");
-  const pretitle_t = useTranslations("navigation");
+  const t = await getTranslations("projects");
+  const pretitle_t = await getTranslations("navigation");
   return (
     <>
       <section

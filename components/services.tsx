@@ -5,15 +5,15 @@ import Pretitle from "./Pretitle";
 import * as Icons from "lucide-react";
 import type { ComponentType } from "react";
 import { getURL, ServiceItem } from "@/lib/serviceData";
-import { useTranslations } from "next-intl";
+import { getTranslations } from "next-intl/server";
 
-export default function Services({
+export default async function Services({
   serviceData,
 }: {
   serviceData: ServiceItem[];
 }) {
-  const t = useTranslations("services");
-  const pretitle_t = useTranslations("navigation");
+  const t = await getTranslations("services");
+  const pretitle_t = await getTranslations("navigation");
   return (
     <section id="services" className="py-20 px-4 sm:px-6 lg:px-8 bg-[#f6f6f6]">
       <div className="max-w-7xl mx-auto">

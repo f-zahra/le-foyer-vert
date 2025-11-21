@@ -1,16 +1,16 @@
-"use client";
 import * as motion from "motion/react-client";
 import ButtonContact from "@/components/ButtonContact";
 import { HeroItem, getURL } from "@/lib/hero";
 import Image from "next/image";
-import { useTranslations } from "next-intl";
 
-export default function HeroSection({
+import { getTranslations } from "next-intl/server";
+
+export default async function HeroSection({
   HeroSectiondata,
 }: {
   HeroSectiondata: HeroItem;
 }) {
-  const t = useTranslations();
+  const t = await getTranslations();
   return (
     <section className={`h-[70vh] bg-no-repeat bg-cover bg-center relative`}>
       <Image

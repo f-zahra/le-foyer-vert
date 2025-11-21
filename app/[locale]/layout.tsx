@@ -30,13 +30,22 @@ export const metadata: Metadata = {
   title: "Le foyer Vert Inc",
   description: "compagnie de construction et renovation",
 };
+type Params = Promise<{ locale: string }>;
 
+export async function generateMetadata({ params }: { params: Params }) {
+  const { locale } = await params;
+  console.log(locale);
+  return {
+    title: "ProjectName",
+    description: "ProjectDescription",
+  };
+}
 export default async function RootLayout({
   children,
   params,
 }: Readonly<{
   children: React.ReactNode;
-  params: { locale: Locale };
+  params: Params;
 }>) {
   // Ensure that the incoming `locale` is valid
   const { locale } = await params;
@@ -46,8 +55,6 @@ export default async function RootLayout({
   const companyInfo = await getCompanyInformationData(locale);
   const messages = await getMessages({ locale });
 
-  console.log("RootLayout locale:", locale);
-  console.log("Messages keys:", Object.keys(messages));
   return (
     <html lang={locale}>
       <body className={`${montserrat.variable} antialiased `}>

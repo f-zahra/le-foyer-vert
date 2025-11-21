@@ -27,7 +27,7 @@ export default async function Navigation({
                 src="/images/logo-2.svg"
                 alt="Logo"
                 width={200}
-                className="pb-3"
+                className="pb-3 w-[200px] h-auto"
                 height={60}
               />
             </div>

@@ -28,6 +28,7 @@ export default async function Navigation({
                 alt="Logo"
                 width={200}
                 className="pb-3 w-[200px] h-auto"
+                style={{ shapeRendering: "geometricPrecision" }}
                 height={60}
               />
             </div>

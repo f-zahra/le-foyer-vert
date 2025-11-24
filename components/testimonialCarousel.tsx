@@ -4,16 +4,11 @@ import {
   Carousel,
   CarouselContent,
   CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
 } from "@/components/ui/carousel";
 import Autoplay from "embla-carousel-autoplay";
 import * as React from "react";
-import { Testimonial } from "@/lib/testimonials";
-interface TestimonialsProps {
-  testimonialData: Testimonial[];
-}
-const TestimonialCarousel = ({ testimonialData }: TestimonialsProps) => {
+
+const TestimonialCarousel = () => {
   const plugin = React.useRef(
     Autoplay({ delay: 2000, stopOnInteraction: true })
   );

@@ -9,7 +9,6 @@ import {
 } from "@/components/ui/select";
 import { routing, usePathname, useRouter } from "@/i18n/routing";
 import { useParams } from "next/navigation";
-import { ReactNode } from "react";
 
 type Props = {
   defaultValue: string;

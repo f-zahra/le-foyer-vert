@@ -1,5 +1,4 @@
-import Image from "next/image";
-import { getURL, ProjectImageItem } from "@/lib/projectGallery";
+import { ProjectImageItem } from "@/lib/projectGallery";
 import {
   Carousel,
   CarouselContent,
@@ -7,12 +6,7 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
-import {
-  Dialog,
-  DialogContent,
-  DialogTitle,
-  DialogTrigger,
-} from "@/components/ui/dialog";
+
 import Pretitle from "./Pretitle";
 import { getTranslations } from "next-intl/server";
 import LightBoxItem from "./LightBoxItem";

@@ -1,5 +1,4 @@
-import type { Metadata } from "next";
-import { Montserrat, Poppins, Oswald } from "next/font/google";
+import { Montserrat } from "next/font/google";
 import "./globals.css";
 import Navigation from "@/components/navigation";
 import TopBar from "@/components/TopBar";
@@ -7,23 +6,12 @@ import Footer from "@/components/Footer";
 import getCompanyInformationData from "@/lib/companyInformation";
 import { NextIntlClientProvider, hasLocale } from "next-intl";
 import { getMessages } from "next-intl/server";
-import { notFound, redirect } from "next/navigation";
+import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
 const montserrat = Montserrat({
   subsets: ["latin"],
   weight: ["400", "700", "900"],
   variable: "--font-montserrat",
-});
-const oswald = Oswald({
-  subsets: ["latin"],
-  weight: ["400", "500"],
-  variable: "--font-oswald",
-});
-
-const poppin = Poppins({
-  subsets: ["latin"],
-  weight: ["400", "700", "900"],
-  variable: "--font-poppins",
 });
 
 type Params = Promise<{ locale: string }>;

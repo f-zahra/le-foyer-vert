@@ -1,5 +1,5 @@
 import {defineType, defineField} from 'sanity'
-import {baseLanguage} from './localeString'
+
 const gallerySchema = defineType({
   name: 'gallery',
   title: 'Project photo gallery',

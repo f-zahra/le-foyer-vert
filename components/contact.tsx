@@ -14,7 +14,6 @@ interface ContactProps {
   companyInfo: CompanyInformation;
 }
 export default async function Contact({
-  testimonials,
   serviceAreas,
   companyInfo,
 }: ContactProps) {

@@ -5,7 +5,7 @@ const PhoneCall = ({ phoneNumber }: { phoneNumber: string }) => {
   return (
     <>
       <Link
-        href={"/contact"}
+        href={`tel:${phoneNumber}`}
         className=" items-center space-x-2 md:flex p-3 hover:scale-105   bg-red-600 border-none  hover:bg-black transition-colors duration-300 ease-in-out "
       >
         {/* Icon */}
@@ -15,7 +15,7 @@ const PhoneCall = ({ phoneNumber }: { phoneNumber: string }) => {
 
         {/* Text: hidden on small screens */}
         <span className="hidden md:inline text-white font-medium text-sm">
-          {phoneNumber}
+          <a>{phoneNumber}</a>
         </span>
       </Link>
     </>

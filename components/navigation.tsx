@@ -50,7 +50,7 @@ export default async function Navigation({
                   label={"select"}
                 ></LocaleSwitcher>
               </div>
-              <PhoneCall phoneNumber={`tel:${companyInfo.phone}`} />
+              <PhoneCall phoneNumber={companyInfo.phone} />
 
               <MobileNavigation />
             </div>

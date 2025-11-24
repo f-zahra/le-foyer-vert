@@ -37,9 +37,7 @@ export default async function Contact({
             <h3 className="text-3xl font-bold lg:mb-8 mb-10 ">
               {t("Testimonials")}
             </h3>
-            <TestimonialCarousel
-              testimonialData={testimonials}
-            ></TestimonialCarousel>
+            <TestimonialCarousel></TestimonialCarousel>
           </div>
           {/* contact and service regions */}
           <div className="  text-center bg-[#1f211e]  text-white py-10 ">

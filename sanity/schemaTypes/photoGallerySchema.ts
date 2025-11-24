@@ -8,7 +8,7 @@ const gallerySchema = defineType({
     defineField({
       name: 'projectTitle',
       title: 'Project name',
-      type: 'localeString',
+      type: 'string',
       description: 'Title of the project',
     }),
     defineField({
@@ -25,12 +25,6 @@ const gallerySchema = defineType({
       ],
     }),
   ],
-  preview: {
-    select: {
-      title: 'name',
-      subtitle: `title.${baseLanguage.id}`,
-    },
-  },
 })
 
 export default gallerySchema

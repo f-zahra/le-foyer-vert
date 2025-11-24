@@ -11,7 +11,7 @@ import getProjectGalleryData from "@/lib/projectGallery";
 import getCompanyInformationData from "@/lib/companyInformation";
 import ContactForm from "@/components/contactForm";
 import getHeroSectionData from "@/lib/hero";
-import { redirect } from "next/navigation";
+import LightBoxItem from "@/components/LightBoxItem";
 
 export default async function Home({ params }: { params: { locale: string } }) {
   const { locale } = await params;

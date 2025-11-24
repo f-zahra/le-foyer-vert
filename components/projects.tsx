@@ -15,6 +15,7 @@ import {
 } from "@/components/ui/dialog";
 import Pretitle from "./Pretitle";
 import { getTranslations } from "next-intl/server";
+import LightBoxItem from "./LightBoxItem";
 
 export default async function Projects({
   projectGallery,
@@ -39,53 +40,17 @@ export default async function Projects({
           </div>
 
           <Carousel className="">
-            <CarouselContent className="-ml-4">
+            <CarouselContent className="-ml-4 gap-3">
               {projectGallery.map((item: ProjectImageItem, index: number) => {
                 return (
                   <CarouselItem
                     key={index}
-                    className="md:basis-1/3 relative h-[250px]  w-full"
+                    className="md:basis-1/3 relative h-[250px]  w-full "
                   >
-                    {/* Wrap everything in a Dialog */}
-                    <Dialog>
-                      {/* ---- Trigger (the clickable image) ---- */}
-                      <DialogTrigger asChild>
-                        <Image
-                          src={getURL(item.image[0])}
-                          fill
-                          alt=""
-                          className="object-cover pl-4"
-                        ></Image>
-                      </DialogTrigger>
-
-                      {/* ---- Popup content ---- */}
-                      <DialogContent className="p-0 bg-transparent border-none shadow-none w-full h-screen flex items-center justify-center">
-                        <DialogTitle>{item.projectTitle}</DialogTitle>
-                        <Carousel
-                          className="w-full max-w-3xl "
-                          opts={{
-                            loop: true,
-                          }}
-                        >
-                          <CarouselContent>
-                            {item.image.map((img: any, imgIndex: number) => {
-                              return (
-                                <CarouselItem key={imgIndex}>
-                                  <Image
-                                    src={getURL(img)}
-                                    alt="Full size"
-                                    width={800}
-                                    height={1000}
-                                  />
-                                </CarouselItem>
-                              );
-                            })}
-                          </CarouselContent>
-                          <CarouselPrevious />
-                          <CarouselNext />
-                        </Carousel>
-                      </DialogContent>
-                    </Dialog>
+                    <LightBoxItem
+                      photoItem={item}
+                      projectTitle={item.projectTitle}
+                    ></LightBoxItem>
                   </CarouselItem>
                 );
               })}

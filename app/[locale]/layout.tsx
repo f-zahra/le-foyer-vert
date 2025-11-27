@@ -1,4 +1,5 @@
 import { Montserrat } from "next/font/google";
+import { Poppins } from "next/font/google";
 import "./globals.css";
 import Navigation from "@/components/navigation";
 import TopBar from "@/components/TopBar";
@@ -12,6 +13,12 @@ const montserrat = Montserrat({
   subsets: ["latin"],
   weight: ["400", "700", "900"],
   variable: "--font-montserrat",
+});
+const poppins = Poppins({
+  weight: ["400", "600"],
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-poppins",
 });
 
 type Params = Promise<{ locale: string }>;
@@ -57,7 +64,9 @@ export default async function RootLayout({
         />
         <link rel="manifest" href="/site.webmanifest" />
       </head>
-      <body className={`${montserrat.variable} antialiased `}>
+      <body
+        className={`${montserrat.variable} antialiased ${poppins.variable} antialiased`}
+      >
         <TopBar companyInfo={companyInfo}></TopBar>
         <NextIntlClientProvider messages={messages}>
           <Navigation companyInfo={companyInfo}></Navigation>

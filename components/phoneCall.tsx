@@ -15,7 +15,7 @@ const PhoneCall = ({ phoneNumber }: { phoneNumber: string }) => {
 
         {/* Text: hidden on small screens */}
         <span className="hidden md:inline text-white font-medium text-sm">
-          <a>{phoneNumber}</a>
+          {phoneNumber}
         </span>
       </Link>
     </>

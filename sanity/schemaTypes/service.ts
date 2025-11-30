@@ -1,11 +1,10 @@
 import {defineField, defineType} from 'sanity'
-import {Wrench} from 'lucide-react'
 import {baseLanguage} from './localeString'
+
 const serviceSchema = defineType({
   name: 'service',
-  title: 'service',
+  title: 'services list',
   type: 'document',
-  icon: Wrench,
   fields: [
     defineField({
       name: 'title',
@@ -20,9 +19,11 @@ const serviceSchema = defineType({
       options: {
         list: [
           {title: 'Wrench', value: 'Wrench'},
-          {title: 'Home', value: 'Home'},
-          {title: 'Globe', value: 'Globe'},
-          {title: 'BookOpen', value: 'BookOpen'},
+          {title: 'Pickaxe', value: 'Pickaxe'},
+          {title: 'HardHat ', value: 'HardHat '},
+          {title: 'Hammer ', value: 'Hammer '},
+          {title: 'Drill', value: 'Drill'},
+          {title: 'House ', value: 'House '},
         ],
         layout: 'dropdown',
       },
@@ -31,7 +32,7 @@ const serviceSchema = defineType({
       name: 'slug',
       type: 'slug',
       description: 'example interior-work',
-      options: {source: 'title'},
+      options: {source: `title.${baseLanguage.id}`},
       validation: (rule) => rule.required(),
     }),
 
@@ -49,7 +50,8 @@ const serviceSchema = defineType({
       title: 'Details',
       type: 'array',
       of: [{type: 'localeString'}],
-      description: 'List of service details or features.',
+      description:
+        'List of service details or features. (e.g., Interior stairs & railings Drywall, walls & ceilings Interior insulation Interior painting)',
     }),
   ],
   preview: {

@@ -8,7 +8,7 @@ const supportedLanguages = [
 export const baseLanguage = supportedLanguages.find((l) => l.isDefault)!
 
 export const localeString = defineType({
-  title: 'Localized String',
+  title: 'Localized field',
   name: 'localeString',
   type: 'object',
   fieldsets: [{title: 'Translations', name: 'translations', options: {collapsible: true}}],

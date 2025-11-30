@@ -2,14 +2,13 @@ import { Phone, Mail, MapPin } from "lucide-react";
 import Pretitle from "./Pretitle";
 
 import TestimonialCarousel from "./testimonialCarousel";
-import { Testimonial } from "@/lib/testimonials";
+
 import { CompanyInformation } from "@/lib/companyInformation";
 import { ServiceArea } from "@/lib/areasServed";
 
 import { getTranslations } from "next-intl/server";
 
 interface ContactProps {
-  testimonials: Testimonial[];
   serviceAreas: ServiceArea;
   companyInfo: CompanyInformation;
 }

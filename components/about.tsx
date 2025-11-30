@@ -15,7 +15,9 @@ const About = async ({ aboutData }: { aboutData: AboutItem }) => {
             <div className="max-w-[600px]">
               {/* pretitle */}
               <Pretitle text={t("about")} center={false}></Pretitle>
-              <h2 className="h2 mb-6 text-2xl font-bold">{aboutData.title}</h2>
+              <h2 className="h2 mb-6 text-2xl font-bold">
+                {aboutData.subtitle}
+              </h2>
               <p className="font-poppins font-medium  text-lg font-small">
                 {aboutData.content}
               </p>

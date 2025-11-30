@@ -3,12 +3,18 @@ import {defineType, defineField} from 'sanity'
 import {baseLanguage} from './localeString'
 const aboutSchema = defineType({
   name: 'about',
-  title: 'About section',
+  title: 'About us section',
   type: 'document',
   fields: [
     defineField({
       name: 'title',
-      title: 'Heading',
+      title: 'Title',
+      type: 'localeString',
+      description: 'The  heading of the section',
+    }),
+    defineField({
+      name: 'subtitle',
+      title: 'subtitle',
       type: 'localeString',
       description: 'The  heading describing your company',
     }),

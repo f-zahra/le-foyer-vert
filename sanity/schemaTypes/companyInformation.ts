@@ -3,12 +3,12 @@ import {defineType, defineField} from 'sanity'
 import {baseLanguage} from './localeString'
 export const companyInformationSchema = defineType({
   name: 'companyInformation',
-  title: 'Company Information',
+  title: 'Company Informations',
   type: 'document',
   fields: [
     defineField({
-      name: 'name',
-      title: 'Company Name',
+      name: 'title',
+      title: 'Title',
       type: 'string',
     }),
     defineField({
@@ -20,6 +20,7 @@ export const companyInformationSchema = defineType({
       name: 'phone',
       title: 'Phone Number',
       type: 'string',
+      description: 'format must be +1-***-***-****',
     }),
     defineField({
       name: 'email',
@@ -54,10 +55,4 @@ export const companyInformationSchema = defineType({
       type: 'localeText',
     }),
   ],
-  preview: {
-    select: {
-      title: `title.${baseLanguage.id}`,
-      subtitle: 'slug.current',
-    },
-  },
 })

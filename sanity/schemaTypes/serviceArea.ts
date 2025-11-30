@@ -2,7 +2,7 @@ import {defineField, defineType} from 'sanity'
 
 const regionSchema = defineType({
   name: 'serviceArea',
-  title: 'Service Area',
+  title: 'Area covered section',
   type: 'document',
   fields: [
     defineField({

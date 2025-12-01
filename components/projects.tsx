@@ -36,7 +36,7 @@ export default async function Projects({
           </div>
 
           <Carousel className="">
-            <CarouselContent className="-ml-4 gap-3">
+            <CarouselContent className="ml-5 gap-3">
               {projectGallery.map((item: ProjectImageItem, index: number) => {
                 return (
                   <CarouselItem
@@ -54,7 +54,7 @@ export default async function Projects({
             {/* --- CUSTOM POSITIONING for arrows --- */}
             <CarouselPrevious
               className="
-            absolute left-4 top-1/2 -translate-y-1/2
+            absolute left-6 top-1/2 -translate-y-1/2
             bg-black/40 hover:bg-black/60 text-white rounded-full
             z-10
           "

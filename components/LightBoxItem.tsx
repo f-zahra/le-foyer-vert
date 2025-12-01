@@ -16,6 +16,7 @@ import lgZoom from "lightgallery/plugins/zoom";
 import Link from "next/link";
 import { getURL } from "@/lib/aboutData";
 import { ProjectImageItem } from "@/lib/projectGallery";
+import { Badge } from "@/components/ui/badge";
 
 export default function LightBoxItem({
   photoItem,
@@ -28,14 +29,22 @@ export default function LightBoxItem({
     <LightGallery speed={500} plugins={[lgThumbnail, lgZoom]}>
       {photoItem.image.map((item: any, index: number) => {
         return (
-          <Link key={index} href={getURL(item)}>
+          <Link key={index} href={getURL(item)} className="">
             <Image
               alt={projectTitle}
               src={getURL(item)}
               fill={true}
               sizes="(min-width: 1360px) 1280px, calc(94.23vw + 17px)"
-              className="object-cover "
+              className="relative object-cover cursor-pointer transition duration-300 hover:brightness-75 hover:scale-105"
             />
+            <div className="absolute top-4 left-4">
+              <Badge
+                variant="secondary"
+                className="bg-background/80 backdrop-blur-xs"
+              >
+                {projectTitle}
+              </Badge>
+            </div>
           </Link>
         );
       })}

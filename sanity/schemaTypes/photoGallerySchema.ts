@@ -9,7 +9,8 @@ const gallerySchema = defineType({
       name: 'projectTitle',
       title: 'Project name',
       type: 'string',
-      description: 'Title of the project',
+      description:
+        'Title of the project (eg "Basement Renovation: Home Theater & Recreation Area”)',
     }),
     defineField({
       name: 'image',

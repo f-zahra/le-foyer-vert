@@ -5,31 +5,38 @@ import { FaInstagram, FaFacebook } from "react-icons/fa";
 import { CompanyInformation } from "@/lib/companyInformation";
 const Footer = ({ companyInfo }: { companyInfo: CompanyInformation }) => {
   return (
-    <footer className="bg-[#b4c2bb] text-green-950 border-t border-green-950/30 ">
-      <div className="@container px-10 mx-auto">
-        <div className="py-16 xl:py-4 flex flex-col xl:flex-row gap-[60px] xl:gap-[30px] xl:items-center justify-evenly mb-6">
-          {/* logo & text  */}
-          <div className=" mb-6">
-            <Link href="/">
-              <Image
-                src="/images/logo-2.png"
-                width={300}
-                height={40}
-                quality={100}
-                alt=""
-              ></Image>
-            </Link>
-            <p className="max-w-[500px] pl-6 text-xl font-medium text-foreground">
-              {companyInfo.slogan}
-            </p>
+    <footer className="bg-[#b4c2bb]">
+      <div className="@container px-10 mx-auto max-w-7xl">
+        <div className="grid md:grid-cols-2 md:gap-4 py-5 border-t-2 border-gray-300/10 text-foreground">
+          <div className="py-8 px-4 space-y-4 ">
+            {/* logo & text  */}
+            <div className="">
+              <Link href="/">
+                <Image
+                  src="/images/logo-2.png"
+                  width={300}
+                  height={40}
+                  quality={100}
+                  alt=""
+                ></Image>
+              </Link>
+              <p className="">{companyInfo.slogan}</p>
+              <div className="flex items-center justify-start gap-5 mt-6">
+                <Link href={companyInfo.socials.instagram}>
+                  <FaInstagram className="text-3xl" />
+                </Link>
+                <Link href={companyInfo.socials.facebook}>
+                  <FaFacebook className="text-3xl" />
+                </Link>
+              </div>
+            </div>
           </div>
           {/* contact */}
-
-          <div className="text-xl">
-            <h4 className="font-bold text-2xl text-secondary-foreground mb-10   uppercase ">
-              Contact
-            </h4>
-            <ul className="space-y-4 text-foreground">
+          <div className="py-8 px-4 space-y-4 md:ml-14">
+            <h1 className="sm:text-xl text-xl font-bold sm:text-left text-justify mb-5 uppercase">
+              contact
+            </h1>
+            <ul className="space-y-4 text-foreground-muted">
               <li className="flex items-center gap-4">
                 <MapPin size={16} strokeWidth={2} className="shrink-0" />
                 <p>{companyInfo.address} </p>
@@ -41,14 +48,6 @@ const Footer = ({ companyInfo }: { companyInfo: CompanyInformation }) => {
               <li className="flex items-center gap-4">
                 <Phone size={16} strokeWidth={2} className="shrink-0" />
                 <p>{companyInfo.phone}</p>
-              </li>
-              <li className="flex items-center gap-4 mt-10  text-2xl">
-                <Link href={companyInfo.socials.instagram}>
-                  <FaInstagram />
-                </Link>
-                <Link href={companyInfo.socials.facebook}>
-                  <FaFacebook />
-                </Link>
               </li>
             </ul>
           </div>

@@ -15,15 +15,11 @@ const gallerySchema = defineType({
     defineField({
       name: 'image',
       title: 'Image',
-      type: 'array',
-      of: [
-        {
-          type: 'image',
-          options: {
-            hotspot: true,
-          },
-        },
-      ],
+      type: 'image',
+      options: {
+        hotspot: true,
+      },
+      description: 'Upload an image that represents the project.',
     }),
   ],
 })

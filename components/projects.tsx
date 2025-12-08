@@ -44,7 +44,7 @@ export default async function Projects({
                     className="md:basis-1/3 relative h-[250px]  w-full "
                   >
                     <LightBoxItem
-                      photoItem={item}
+                      photoItem={item.image}
                       projectTitle={item.projectTitle}
                     ></LightBoxItem>
                   </CarouselItem>

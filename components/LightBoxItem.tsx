@@ -27,27 +27,23 @@ export default function LightBoxItem({
 }) {
   return (
     <LightGallery speed={500} plugins={[lgThumbnail, lgZoom]}>
-      {photoItem.image.map((item: any, index: number) => {
-        return (
-          <Link key={index} href={getURL(item)} className="">
-            <Image
-              alt={projectTitle}
-              src={getURL(item)}
-              fill={true}
-              sizes="(min-width: 1360px) 1280px, calc(94.23vw + 17px)"
-              className="relative object-cover cursor-pointer transition duration-300 hover:brightness-75 hover:scale-105"
-            />
-            <div className="absolute top-4 left-4">
-              <Badge
-                variant="secondary"
-                className="bg-background/80 backdrop-blur-xs"
-              >
-                {projectTitle}
-              </Badge>
-            </div>
-          </Link>
-        );
-      })}
+      <Link href={getURL(photoItem)} className="">
+        <Image
+          alt={projectTitle}
+          src={getURL(photoItem)}
+          fill={true}
+          sizes="(min-width: 1360px) 1280px, calc(94.23vw + 17px)"
+          className="relative object-cover cursor-pointer transition duration-300 hover:brightness-75 hover:scale-105"
+        />
+        <div className="absolute top-4 left-4">
+          <Badge
+            variant="secondary"
+            className="bg-background/80 backdrop-blur-xs"
+          >
+            {projectTitle}
+          </Badge>
+        </div>
+      </Link>
     </LightGallery>
   );
 }
